@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <form action="save" method="post">
+  <form action="save4" method="post">
   Id : <input type="text" name="id"> <br>
   Name : <input type="text" name="name"> <br>
   Marks : <input type="text" name="marks"> <br> 

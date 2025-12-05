@@ -9,7 +9,7 @@
 <body>
 
 	<h1>
-		Id : ${sid} <br> Name : ${sname} <br> Marks : ${smarks} <br>
+		Id : ${stud.id} <br> Name : ${stud.name} <br> Marks : ${stud.marks} <br>
 
 	</h1>
 
