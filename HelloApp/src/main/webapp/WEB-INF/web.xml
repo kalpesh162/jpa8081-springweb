@@ -12,6 +12,8 @@
     <welcome-file>default.xhtml</welcome-file>
   </welcome-file-list>
   
+  <absolute-ordering></absolute-ordering>
+  
   <servlet>
   <servlet-name>spring</servlet-name>
   <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
