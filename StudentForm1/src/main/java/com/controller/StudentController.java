@@ -42,6 +42,7 @@ public class StudentController {
 		return "display";
 	}
 
+	// For This We need to Create Student Class
 	@RequestMapping(value = "/save3", method = RequestMethod.POST)
 	public String saveStudent3(@RequestParam("id") int id, @RequestParam("name") String name,
 			@RequestParam("marks") double marks, Model model) {
@@ -49,7 +50,8 @@ public class StudentController {
 		model.addAttribute("stud", student);
 		return "display";
 	}
-
+	
+	// For This We need to Create Student Class
 	@RequestMapping(value = "/save4", method = RequestMethod.POST)
 	public ModelAndView saveStudent4(@RequestParam("id") int id, @RequestParam("name") String name,
 			@RequestParam("marks") double marks) {
