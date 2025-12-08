@@ -10,9 +10,17 @@ import com.model.Student;
 public class StudentService {
 
 	private StudentDao studentDao;
-	
+
 	public void addStudent(Student student) {
-			studentDao.insertStudent(student);
+		studentDao.insertStudent(student);
+	}
+
+	public void deleteStudent(int id) {
+		studentDao.removeStudent(id);
+	}
+
+	public void modifyStudent(Student student) {
+		studentDao.updateStudent(student);
 	}
 
 	public StudentDao getStudentDao() {
@@ -23,5 +31,5 @@ public class StudentService {
 	public void setStudentDao(StudentDao studentDao) {
 		this.studentDao = studentDao;
 	}
-	
+
 }

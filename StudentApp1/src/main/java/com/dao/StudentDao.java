@@ -17,6 +17,18 @@ public class StudentDao {
 		jdbcTemplate.update(sql, student.getId(), student.getName(), student.getMarks());
 	}
 
+	public void removeStudent(int id) {
+		String sql = "DELETE FROM STUDENT WHERE id=?";
+
+		jdbcTemplate.update(sql, id);
+	}
+
+	public void updateStudent(Student student) {
+		String sql = "UPDATE STUDENT set name=? , marks=? WHERE id=?)";
+
+		jdbcTemplate.update(sql, student.getName(), student.getMarks(), student.getId());
+	}
+
 	public JdbcTemplate getJdbcTemplate() {
 		return jdbcTemplate;
 	}

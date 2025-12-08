@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -38,7 +39,16 @@ public class StudentController {
 		service.addStudent(student);
 		return "";
 	}
+	
+	// http://localhsot:8080/StudentApp1/students/delete/11
+	@GetMapping("/delete/{id}")
+	public String deleteRecord(@PathVariable("id")int id) {
+		service.deleteStudent(id);
+		return "";
+	}
 
+	
+	
 	public StudentService getService() {
 		return service;
 	}
