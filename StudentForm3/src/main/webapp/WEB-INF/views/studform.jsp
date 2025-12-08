@@ -20,6 +20,7 @@
 		<br>
        Gender : <form:radiobutton path="gender" value="MALE" /> Male  <br>
 		<form:radiobutton path="gender" value="FEMALE" />Female<br>
+		<br>
        Courses : 
         <form:checkbox path="courses" value="JAVA" />JAVA  <br>
 		<form:checkbox path="courses" value="CPP" />CPP    <br>
