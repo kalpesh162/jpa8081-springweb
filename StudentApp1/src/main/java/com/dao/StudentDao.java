@@ -1,9 +1,12 @@
 package com.dao;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.mapper.StudentRowMapper;
 import com.model.Student;
 
 @Repository
@@ -27,6 +30,17 @@ public class StudentDao {
 		String sql = "UPDATE STUDENT set name=? , marks=? WHERE id=?)";
 
 		jdbcTemplate.update(sql, student.getName(), student.getMarks(), student.getId());
+	}
+
+	public List<Student> getAllStudets() {
+		String sql = "SELECT * FROM Student";
+
+		return jdbcTemplate.query(sql, new StudentRowMapper());
+	}
+
+	public Student getStudentById(int id) {
+		String sql = "SELECT * FROM Student WHERE id=?";
+		return jdbcTemplate.queryForObject(sql, new StudentRowMapper(), id);
 	}
 
 	public JdbcTemplate getJdbcTemplate() {

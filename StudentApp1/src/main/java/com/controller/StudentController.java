@@ -1,5 +1,7 @@
 package com.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 // @GetMapping =@RequestMapping(value = "/new", method = RequestMethod.GET)
 import org.springframework.stereotype.Controller;
@@ -39,16 +41,23 @@ public class StudentController {
 		service.addStudent(student);
 		return "";
 	}
-	
-	// http://localhsot:8080/StudentApp1/students/delete/11
+
+	// Delete
+	// http://localhost:8080/StudentApp1/students/delete/11
 	@GetMapping("/delete/{id}")
-	public String deleteRecord(@PathVariable("id")int id) {
+	public String deleteRecord(@PathVariable("id") int id) {
 		service.deleteStudent(id);
 		return "";
 	}
 
-	
-	
+	@GetMapping("/read")
+	public String showAllStudents(Model model) {
+		List<Student> studList = service.findAllStudets();
+		System.out.println(studList);
+		model.addAttribute("studList", studList);
+		return "display";
+	}
+
 	public StudentService getService() {
 		return service;
 	}
