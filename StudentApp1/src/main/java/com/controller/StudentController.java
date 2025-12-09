@@ -39,7 +39,7 @@ public class StudentController {
 	public String saveRecord(@ModelAttribute("stud") Student student) {
 		System.out.println("  -->  " + student);
 		service.addStudent(student);
-		return "";
+		return "redirect:/students/read";
 	}
 
 	// Delete
@@ -47,7 +47,7 @@ public class StudentController {
 	@GetMapping("/delete/{id}")
 	public String deleteRecord(@PathVariable("id") int id) {
 		service.deleteStudent(id);
-		return "";
+		return "redirect:/students/read";
 	}
 
 	@GetMapping("/read")
@@ -56,6 +56,19 @@ public class StudentController {
 		System.out.println(studList);
 		model.addAttribute("studList", studList);
 		return "display";
+	}
+
+	@GetMapping("/edit/{id}")
+	public String openUpdateForm(@PathVariable("id") int id, Model model) {
+		Student student = service.findStudentById(id);
+		model.addAttribute("stud", student);
+		return "student-update";
+	}
+
+	@GetMapping("/update")
+	public String updateStudent(@ModelAttribute("stud") Student student) {
+		service.modifyStudent(student);
+		return "redirect:/students/read";
 	}
 
 	public StudentService getService() {

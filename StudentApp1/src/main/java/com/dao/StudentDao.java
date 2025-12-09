@@ -27,7 +27,7 @@ public class StudentDao {
 	}
 
 	public void updateStudent(Student student) {
-		String sql = "UPDATE STUDENT set name=? , marks=? WHERE id=?)";
+		String sql = "UPDATE STUDENT set name=? , marks=? WHERE id=?";
 
 		jdbcTemplate.update(sql, student.getName(), student.getMarks(), student.getId());
 	}

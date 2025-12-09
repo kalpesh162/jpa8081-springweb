@@ -22,8 +22,9 @@
 				<td><c:out value="${student.id}"></c:out></td>
 				<td><c:out value="${student.name}"></c:out></td>
 				<td><c:out value="${student.marks}"></c:out></td>
-				<td><c:out value="${'UPADTE'}"></c:out></td>
-				<td><c:out value="${'DELETE'}"></c:out></td>
+				<td><a href='<c:out value="edit/${student.id}"></c:out>'>UPDATE</a></td>
+
+				<td><a href='<c:out value="delete/${student.id}"></c:out>'>DELETE</a></td>
 			</tr>
 		</c:forEach>
 	</table>
